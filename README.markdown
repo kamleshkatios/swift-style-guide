@@ -574,43 +574,44 @@ if let realVolume = volume {
 }
 }
 ```
-*** Extra Points:**
+** Extra Points:**
 
 Optionals will lead to crashed when you unwrap it, if is nil.
 
-Solution:
+** Solution:** 
 
 Use optional binding.
-
+```swift
 var anyString :String? //Optional
 anyString = nil
-
-Recommended
-
+```
+** Recommended** 
+```swift
 if let holderAnyString = anyString {
 //use the string (holderAnyString) here. If not used compiler will throw warning.
 } else {
 // anyString is nil
 }
-
+```
 
 In above code holderAnyString will be accessible in inside if loop, so some cases if we need, we could prefer the below one
-
+```swift
 guard let holderAnyString = anyString else {
 print("no value")
 return
 }
 
 print(holderAnyString) // will be accessed
-
+```
 
 Not recommended 
-
+```swift
 if anyString != nil {
 //use the string here
 }else {
 
 }
+```
 
 ### Lazy Initialization
 
