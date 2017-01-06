@@ -41,6 +41,7 @@ Our overarching goals are clarity, consistency and brevity, in that order.
 * [Access Control](#access-control)
 * [Control Flow](#control-flow)
 * [Golden Path](#golden-path)
+* [Nil Coalescing Operator](#nil-coalescing-operator)
 * [Failing Guards](#failing-guards)
 * [Semicolons](#semicolons)
 * [Parentheses](#parentheses)
@@ -884,6 +885,26 @@ fatalError("impossible")
 fatalError("impossible")
 }
 ```
+### Nil Coalescing Operator
+```swift
+func returnInt() -> Int{
+var restoredValue: Int?
+let  objectExists = UserDefaults().object(forKey: "key") != nil
+if objectExists {
+restoredValue = UserDefaults().integer(forKey: "key")
+} else {
+restoredValue = 23
+}
+return restoredValue!
+}
+```
+The same can be achieved with Nil Coalescing Operator.
+```swift
+func returnInt() -> Int{
+return (UserDefaults().object(forKey: "key") as? Int) ?? 23
+}
+```
+
 
 ### Failing Guards
 
